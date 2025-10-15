@@ -73,20 +73,20 @@
     .error{ color: var(--error); margin:6px 0; font-size: 12px; }
     .success{ color: var(--success); margin:6px 0; font-size: 12px; }
     
-    /* Inputs */
+    /* Inputs - уменьшены */
     input{ 
       background: white; 
       color: var(--text); 
       border: 1px solid var(--border); 
-      padding: 3px 4px; 
+      padding: 2px 3px; 
       border-radius: 3px; 
       outline: none; 
       width: 100%; 
       box-sizing: border-box; 
-      font-size: 12px;
-      max-width: 40px;
+      font-size: 11px;
+      max-width: 40px; /* Уменьшено до 40px */
       text-align: center;
-      height: 22px;
+      height: 20px;
     }
     input:focus{ 
       border-color: var(--accent); 
@@ -115,12 +115,14 @@
     }
     .chip{ 
       display: inline-block; 
-      padding: 1px 3px; 
+      padding: 1px 4px; 
       border-radius: 2px; 
       border: 1px solid var(--border); 
       background: rgba(0,0,0,0.03); 
       font-feature-settings: "tnum" on, "lnum" on; 
       font-size: 10px;
+      min-width: 18px;
+      text-align: center;
     }
     .chip.mono{ 
       font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; 
@@ -137,14 +139,14 @@
     }
     .fak-row {
       display: grid;
-      grid-template-columns: 65px 35px 18px 35px 18px 35px 18px 35px;
+      grid-template-columns: 65px 40px 16px 40px 16px 40px 16px 40px; /* Уменьшено */
       gap: 3px;
       align-items: center;
       font-size: 11px;
     }
     .eq-row {
       display: grid;
-      grid-template-columns: 50px 35px 45px 35px 45px 35px 25px 35px;
+      grid-template-columns: 50px 40px 45px 40px 45px 40px 22px 40px; /* Уменьшено */
       gap: 2px;
       align-items: center;
       font-size: 11px;
@@ -158,7 +160,7 @@
     }
     .u-grid {
       display: grid;
-      grid-template-columns: 120px 45px 45px;
+      grid-template-columns: 120px 40px 40px; /* Уменьшено */
       gap: 6px;
       align-items: center;
       font-size: 11px;
@@ -166,7 +168,7 @@
     }
     .graph-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 10px;
     }
     .legend {
@@ -188,8 +190,33 @@
     }
     .diagram-row {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
       gap: 8px;
+    }
+    .fak-description {
+      margin-top: 10px;
+      padding: 8px;
+      background: rgba(0,0,0,0.03);
+      border-radius: 5px;
+      font-size: 11px;
+    }
+    .fak-description h4 {
+      margin: 0 0 5px 0;
+      font-size: 12px;
+      color: var(--accent);
+    }
+    .fak-description ul {
+      margin: 0;
+      padding-left: 15px;
+    }
+    .fak-description li {
+      margin-bottom: 2px;
+    }
+    .limit-note {
+      font-size: 10px;
+      color: var(--muted);
+      margin-top: 5px;
+      font-style: italic;
     }
   </style>
   <link rel="icon" href="data:," />
@@ -342,14 +369,18 @@
         <div class="card">
           <h3>Графики возмущений</h3>
           <img src="data:image/png;base64,{{ images_b64.figure4 }}" alt="График возмущений" />
+          <div class="limit-note">* Все возмущения ограничены диапазоном [0, 1]</div>
+          
           <div class="legend">
-            <div class="legend-item"><div class="legend-color" style="background: #1f77b4;"></div>Fak1</div>
-            <div class="legend-item"><div class="legend-color" style="background: #ff7f0e;"></div>Fak2</div>
-            <div class="legend-item"><div class="legend-color" style="background: #2ca02c;"></div>Fak3</div>
-            <div class="legend-item"><div class="legend-color" style="background: #d62728;"></div>Fak4</div>
-            <div class="legend-item"><div class="legend-color" style="background: #9467bd;"></div>Fak6</div>
-            <div class="legend-item"><div class="legend-color" style="background: #8c564b;"></div>Fak7</div>
+            <div class="legend-item"><div class="legend-color" style="background: #1f77b4;"></div>Внешние помехи</div>
+            <div class="legend-item"><div class="legend-color" style="background: #ff7f0e;"></div>Изменения требований</div>
+            <div class="legend-item"><div class="legend-color" style="background: #2ca02c;"></div>Стабильность окружения</div>
+            <div class="legend-item"><div class="legend-color" style="background: #d62728;"></div>Технические сбои</div>
+            <div class="legend-item"><div class="legend-color" style="background: #9467bd;"></div>Человеческий фактор</div>
+            <div class="legend-item"><div class="legend-color" style="background: #8c564b;"></div>Время выполнения</div>
           </div>
+          
+         
         </div>
       {% else %}
         <div class="card">Заполните параметры и нажмите «Вычислить»</div>
