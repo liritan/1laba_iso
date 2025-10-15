@@ -164,13 +164,13 @@
       font-weight: 600;
     }
     .u-grid {
-      display: grid;
-      grid-template-columns: 130px 45px 45px;
-      gap: 8px;
-      align-items: center;
-      font-size: 11px;
-      padding: 3px 0;
-    }
+  display: grid;
+  grid-template-columns: 500px 35px 35px 45px; /* Увеличил промежуток с 10px до 15px */
+  gap: 8px;
+  align-items: center;
+  font-size: 11px;
+  padding: 3px 0;
+}
     .graph-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -305,15 +305,16 @@
             </div>
 
             <h3 class="section-title">Начальные условия</h3>
-            <div class="compact-grid">
-              {% for i in range(1,24) %}
-                <div class="u-grid">
-                  <div class="ulabel">{{ u_labels[i-1] if u_labels else ('X' ~ i) }}</div>
-                  <input name="u{{ i }}" value="{{ (values.u[i-1] if values else defaults.u[i-1]) }}" maxlength="4" placeholder="Нач." />
-                  <input name="u_restrictions{{ i }}" value="{{ (values.u_restrictions[i-1] if values else defaults.u_restrictions[i-1]) }}" maxlength="4" placeholder="Предел" />
-                </div>
-              {% endfor %}
-            </div>
+                        <div class="compact-grid">
+                          {% for i in range(1,24) %}
+                            <div class="u-grid">
+  <div class="ulabel">{{ u_labels[i-1] if u_labels else ('X' ~ i) }}</div>
+  <input name="u{{ i }}" value="{{ (values.u[i-1] if values else defaults.u[i-1]) }}" maxlength="4" placeholder="Нач." />
+  <div class="nowrap">предел</div>
+  <input name="u_restrictions{{ i }}" value="{{ (values.u_restrictions[i-1] if values else defaults.u_restrictions[i-1]) }}" maxlength="4" placeholder="Предел" />
+</div>
+                          {% endfor %}
+                        </div>
 
             <h3 class="section-title">Уравнения характеристик</h3>
             <div class="scrollbox">
