@@ -133,6 +133,7 @@ def draw_faks(t, faks):
     ax.grid(True, alpha=0.3)
     ax.set_ylim(0, 1.0)
     
+    
     plt.tight_layout()
     return fig
 
