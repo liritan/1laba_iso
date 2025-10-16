@@ -377,27 +377,26 @@
     </div>
 
     <div id="tab-faks" class="tab">
-      {% if ran %}
-        <div class="card">
-          <h3>Графики возмущений</h3>
-          <img src="data:image/png;base64,{{ images_b64.figure4 }}" alt="График возмущений" />
-          <div class="limit-note">* Все возмущения ограничены диапазоном [0, 1]</div>
-          
-          <div class="legend">
-            <div class="legend-item"><div class="legend-color" style="background: #1f77b4;"></div>Внешние помехи</div>
-            <div class="legend-item"><div class="legend-color" style="background: #ff7f0e;"></div>Изменения требований</div>
-            <div class="legend-item"><div class="legend-color" style="background: #2ca02c;"></div>Стабильность окружения</div>
-            <div class="legend-item"><div class="legend-color" style="background: #d62728;"></div>Технические сбои</div>
-            <div class="legend-item"><div class="legend-color" style="background: #9467bd;"></div>Человеческий фактор</div>
-            <div class="legend-item"><div class="legend-color" style="background: #8c564b;"></div>Время выполнения</div>
-          </div>
-          
-         
-        </div>
-      {% else %}
-        <div class="card">Заполните параметры и нажмите «Вычислить»</div>
-      {% endif %}
+  {% if ran %}
+    <div class="card">
+      <h3>Графики возмущений</h3>
+      <img src="data:image/png;base64,{{ images_b64.figure4 }}" alt="График возмущений" />
+      <div class="limit-note">* Все возмущения ограничены диапазоном [0, 1]</div>
+      
+      <div class="legend">
+        <div class="legend-item"><div class="legend-color" style="background: #1f77b4;"></div>Fak1: опыт разработчиков программного комплекса</div>
+        <div class="legend-item"><div class="legend-color" style="background: #ff7f0e;"></div>Fak2: опыт работы эксплуатационного персонала</div>
+        <div class="legend-item"><div class="legend-color" style="background: #2ca02c;"></div>Fak3: трудоемкость разработки программного обеспечения</div>
+        <div class="legend-item"><div class="legend-color" style="background: #d62728;"></div>Fak4: курс рубля по отношению к доллару</div>
+        <div class="legend-item"><div class="legend-color" style="background: #9467bd;"></div>Fak6: деловая репутация разработчиков программного комплекса</div>
+        <div class="legend-item"><div class="legend-color" style="background: #8c564b;"></div>Fak7: деловая репутация организации, в которой осуществляется эксплуатация программного комплекса</div>
+      </div>
+      
     </div>
+  {% else %}
+    <div class="card">Заполните параметры и нажмите «Вычислить»</div>
+  {% endif %}
+</div>
   </div>
 </body>
 </html>

@@ -114,7 +114,7 @@ def draw_faks(t, faks):
     fig, ax = plt.subplots(figsize=(10, 5))
     
     fak_functions = [fak_1, fak_2, fak_3, fak_4, fak_6, fak_7]
-    fak_names = ['Fak1', 'Fak2', 'Fak3', 'Fak4', 'Fak6', 'Fak7']
+    fak_names = ['Fak1 = a·t + b', 'Fak2 = b·a·t² + b·t + c', 'Fak3 = c', 'Fak4 = -a·t + b', 'Fak6 = a·t + b', 'Fak7 = a·t + c']
     colors = ['#1f77b4', '#ff7f0e', '#2ca02c', '#d62728', '#9467bd', '#8c564b']
     
     for i, (fak_func, color, name) in enumerate(zip(fak_functions, colors, fak_names)):
